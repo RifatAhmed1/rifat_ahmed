@@ -6,7 +6,7 @@ import { useState, useEffect} from 'react';
 
 import {SiFacebook, SiLinkedin, SiGithub, SiHtml5, SiCss3, SiJavascript, SiMui, SiTailwindcss, SiReact, SiNextdotjs, SiPython, SiNodedotjs, SiDjango, SiFastapi, SiMongodb, SiSqlite, SiMysql, SiPostgresql, SiJupyter, SiPytorch, SiTensorflow, SiDocker, SiGit, SiAmazonwebservices} from "react-icons/si"
 
-const baseUrl = process.env.NODE_ENV === "production" ? "/public" : ""
+const baseUrl = process.env.NODE_ENV === "production" ? "" : "/"
 
 const StyledRoot = (props) => {
   const {children} = props;
@@ -173,7 +173,7 @@ export default function Home() {
         <StyledListItem>
           <StyledAvatar href="#welcome">
             <Box sx={{position: 'relative', height: 160, width: 160, borderRadius: 999, overflow: "hidden"}}>
-              <Image src={`${baseUrl}/1723724803350.jpg`} alt="rifat_ahmed" fill style={{objectFit:"cover", objectPosition:"top"}} quality={100}/>
+              <Image src={`${baseUrl}1723724803350.jpg`} alt="rifat_ahmed" fill style={{objectFit:"cover", objectPosition:"top"}} quality={100}/>
             </Box>
           </StyledAvatar>
         </StyledListItem>
