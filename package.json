@@ -5,7 +5,7 @@
   "homepage": "https://rifatahmed1.github.io/",
   "scripts": {
     "dev": "next dev --turbopack",
-    "build": "next build && next export",
+    "build": "next build",
     "start": "next start",
     "lint": "next lint",
     "deploy": "npm run build && gh-pages -d out"
