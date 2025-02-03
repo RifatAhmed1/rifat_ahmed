@@ -1,8 +1,9 @@
 "use client";
 import Image from "next/image";
-import { Box, Button, Divider, Grid2, Link, List, ListItem, Stack, Typography } from "@mui/material";
+import { Box, Button, Card, CardActionArea, CardActions, CardContent, CardHeader, CardMedia, Divider, Link, List, ListItem, Stack, Typography } from "@mui/material";
+import Grid from '@mui/material/Grid2';
 import { Link as NextLink } from "next/link";
-import { useState, useEffect} from 'react';
+import { useState, useEffect } from 'react';
 
 import {SiFacebook, SiLinkedin, SiGithub, SiHtml5, SiCss3, SiJavascript, SiMui, SiTailwindcss, SiReact, SiNextdotjs, SiPython, SiNodedotjs, SiDjango, SiFastapi, SiMongodb, SiSqlite, SiMysql, SiPostgresql, SiJupyter, SiPytorch, SiTensorflow, SiDocker, SiGit, SiAmazonwebservices} from "react-icons/si"
 
@@ -122,8 +123,8 @@ const StyledSection = (props) => {
     backgroundColor: 'grey',
     minHeight: '100vh',
     display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'flex-start',
+    //justifyContent: 'center',
+    //alignItems: 'flex-start',
     flexDirection: 'column',
     p: 8
   }
@@ -134,8 +135,30 @@ const StyledSection = (props) => {
   )
 }
 
+const StyledLinkButton = (props) => {
+  const { children, href, ...rest } = props;
+
+  const buttonStyle = {
+    border: "2px solid black", 
+    color: 'black', 
+    "&:hover":{
+      color: 'white', 
+      backgroundColor: 'black'
+    }
+  }
+
+  return (
+    <Button {...rest} sx={buttonStyle}>
+      <Link component={NextLink} href={href} underline="none" sx={{color: 'inherit'}}>
+        <Typography variant="h6">
+          { children }
+        </Typography>
+      </Link>
+    </Button>
+  )
+}
+
 export default function Home() {
-  const [activeSection, setActiveSection] = useState('');
   const [fullUrl, setFullUrl] = useState('');
   const sections = ["welcome", "about", "projects", "education", "skills", "interests"]
 
@@ -150,9 +173,7 @@ export default function Home() {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           const sectionId = entry.target.id;
-          setActiveSection(sectionId);
           window.history.replaceState(null, "", `#${sectionId}`);
-          //console.log("active section: ", sectionId)
           //console.log(window.location.href)
           setFullUrl(window.location.href)
         }
@@ -190,7 +211,7 @@ export default function Home() {
             <Typography sx={{fontWeight: "bold"}} variant="h5">NARSINGDI, DHAKA, BANGLADESH &#x2022; +880-1754-120543 &#x2022; <span style={{color: 'white'}}>RIFAT4318@GMAIL.COM</span></Typography>
           </Box>
           <Box sx={{marginTop: 2, marginBottom: 2}}>
-          <Typography variant="h6">Self-driven web developer specializing in building user-friendly web applications integrating the power of modern AI solutions.</Typography>
+          <Typography variant="h5">Self-driven web developer specializing in building user-friendly web applications integrating the power of modern AI solutions.</Typography>
           </Box>
           <Box sx={{marginTop: 2, marginBottom: 2}}>
           <Stack direction={'row'} spacing={4} marginTop={4}>
@@ -201,8 +222,8 @@ export default function Home() {
           </Box>
           <Box sx={{marginTop: 2, marginBottom: 2, }}>
           <Stack direction={"row"} spacing={1}>
-            <Button variant="outlined" sx={{border: "2px solid black", color: 'black', "&:hover":{color: 'white', backgroundColor: 'black'}}}><a href="#about">Read More</a></Button>
-            <Button variant="outlined" sx={{border: "2px solid black", color: 'black', "&:hover":{color: 'white', backgroundColor: 'black'}}}>Contact Me</Button>
+            <StyledLinkButton href={"#about"}>Read More</StyledLinkButton>
+            <StyledLinkButton href={"#contact"}>Contact Me</StyledLinkButton>
           </Stack>
           </Box> 
         </StyledSection>
@@ -210,18 +231,19 @@ export default function Home() {
         
         <StyledSection id={"about"}>
           <Box>
-            <Typography variant="h1">ABOUT</Typography>
+            <Typography sx={{fontWeight: "bold"}} variant="h1">ABOUT</Typography>
           </Box>
           <Box>
-            <Typography>
+            <Typography variant="h5">
               apart from being a student of Electrical and Electronic Engineering, my passion for programming and 
               creativity has led me on the path of web development. In my free time during academic years, I have 
               taught myself various web development technologies and tools. For research work, I have learned and 
               implemented AI/ML tools which enabled me to develop websites that leverages the power of modern AI.
             </Typography>
           </Box>
+          <Box sx={{marginTop: 2, marginBottom: 2}}/>
           <Box>
-            <Typography>
+            <Typography variant="h5">
               I am currently looking for an opportunity to work in a challenging position leveraging my skills as 
               a web developer which provides professional development, valuable experience, and personal growth.
             </Typography>
@@ -231,58 +253,100 @@ export default function Home() {
         <Divider/>
 
         <StyledSection id={"projects"}>
-          <Box>
-            <Typography variant="h1">PROJECTS</Typography>
+          <Box><Typography sx={{fontWeight: "bold"}} variant="h1">PROJECTS</Typography></Box>
+          <Box sx={{marginTop: 2, marginBottom: 2}}/>
+
+          <Box sx={{display: "flex", flexDirection: "row"}}>
+          <Grid container spacing={2} flexGrow={1}>
+            <Grid size={4}>
+              <Card sx={{minHeight: 360}}>
+                <CardMedia/>
+                <CardContent>
+                  hi
+                </CardContent>
+                <CardActions>
+                  <Button>click me</Button>
+                </CardActions>
+              </Card>
+            </Grid>
+            <Grid size={4}>
+              <Card sx={{minHeight: 360}}>
+                <CardMedia/>
+                <CardContent>
+                  hi
+                </CardContent>
+                <CardActions>
+                  <Button>click me</Button>
+                </CardActions>
+              </Card>
+            </Grid>
+            <Grid size={4}>
+              <Card>
+                <CardMedia/>
+                <CardContent sx={{height: 100}}>
+                  hi
+                </CardContent>
+                <CardActions>
+                  <Button>click me</Button>
+                </CardActions>
+              </Card>
+            </Grid>
+          </Grid>
           </Box>
         </StyledSection>
 
         <Divider/>
 
         <StyledSection id={"skills"}>
-          <Box>
-            <Typography variant="h1">SKILLS</Typography>
-          </Box>
-          <Box>
-            <Typography>programming Languages and Tools</Typography>
-          </Box>
-          <Grid2 container spacing={2}>
-            <Grid2><SiHtml5 size={40}/></Grid2>
-            <Grid2><SiCss3 size={40}/></Grid2>
-            <Grid2><SiMui size={40}/></Grid2>
-            <Grid2><SiTailwindcss size={40}/></Grid2>
-            <Grid2><SiReact size={40}/></Grid2>
-            <Grid2><SiNextdotjs size={40}/></Grid2>
-            <Grid2><SiJavascript size={40}/></Grid2>
-            <Grid2><SiPython size={40}/></Grid2>
-            <Grid2><SiNodedotjs size={40}/></Grid2>
-            <Grid2><SiDjango size={40}/></Grid2>
-            <Grid2><SiFastapi size={40}/></Grid2>
-            <Grid2><SiMongodb size={40}/></Grid2>
-            <Grid2><SiSqlite size={40}/></Grid2>
-            <Grid2><SiMysql size={40}/></Grid2>
-            <Grid2><SiPostgresql size={40}/></Grid2>
-            <Grid2><SiJupyter size={40}/></Grid2>
-            <Grid2><SiPytorch size={40}/></Grid2>
-            <Grid2><SiTensorflow size={40}/></Grid2>
-            <Grid2><SiDocker size={40}/></Grid2>
-            <Grid2><SiGit size={40}/></Grid2>
-            <Grid2><SiGithub size={40}/></Grid2>
-            <Grid2><SiAmazonwebservices size={40}/></Grid2>
-          </Grid2>
+          <Box><Typography sx={{fontWeight: "bold"}} variant="h1">SKILLS</Typography></Box>
+          <Box><Typography variant="h4">programming Languages and Tools</Typography></Box>
+          <Box sx={{marginTop: 2, marginBottom: 2}}/>
+          <Grid container spacing={2}>
+            <Grid><SiHtml5 size={40}/></Grid>
+            <Grid><SiCss3 size={40}/></Grid>
+            <Grid><SiMui size={40}/></Grid>
+            <Grid><SiTailwindcss size={40}/></Grid>
+            <Grid><SiReact size={40}/></Grid>
+            <Grid><SiNextdotjs size={40}/></Grid>
+            <Grid><SiJavascript size={40}/></Grid>
+            <Grid><SiPython size={40}/></Grid>
+            <Grid><SiNodedotjs size={40}/></Grid>
+            <Grid><SiDjango size={40}/></Grid>
+            <Grid><SiFastapi size={40}/></Grid>
+            <Grid><SiMongodb size={40}/></Grid>
+            <Grid><SiSqlite size={40}/></Grid>
+            <Grid><SiMysql size={40}/></Grid>
+            <Grid><SiPostgresql size={40}/></Grid>
+            <Grid><SiJupyter size={40}/></Grid>
+            <Grid><SiPytorch size={40}/></Grid>
+            <Grid><SiTensorflow size={40}/></Grid>
+            <Grid><SiDocker size={40}/></Grid>
+            <Grid><SiGit size={40}/></Grid>
+            <Grid><SiGithub size={40}/></Grid>
+            <Grid><SiAmazonwebservices size={40}/></Grid>
+          </Grid>
         </StyledSection>
 
         <Divider/>
 
         <StyledSection id={"education"}>
           <Box>
-            <Typography variant="h1">EDUCATION</Typography>
+            <Typography sx={{fontWeight: "bold"}} variant="h1">EDUCATION</Typography>
           </Box>
           <Box>
-            <Typography variant="h5">HAJEE MOHAMMAD DANESH SCIENCE AND TECHNOLOGY UNIVERSITY</Typography>
+            <Typography variant="h4">HAJEE MOHAMMAD DANESH SCIENCE AND TECHNOLOGY UNIVERSITY</Typography>
             <Typography variant="h5">BSC. IN ENGINEERING</Typography>
-            <Typography>ELECTRICAL AND ELECTRONIC ENGINEERING</Typography>
-            <Typography>GPA: 3.14</Typography>
-            <Typography>JANUARY 2018 - DECEMBER 2023</Typography>
+            <Typography variant="h6">ELECTRICAL AND ELECTRONIC ENGINEERING</Typography>
+            <Typography variant="h6">GPA: 3.14</Typography>
+            <Typography variant="h6">2018 - 2023</Typography>
+          </Box>
+          <Box sx={{marginTop: 2, marginBottom: 2}}/>
+          <Box>
+            <Typography variant="h4">NARSINGDI SCIENCE COLLEGE</Typography>
+            <Typography variant="h5">HIGHER SECONDARY CERTIFICATE</Typography>
+            <Typography variant="h6">SCIENCE</Typography>
+            <Typography variant="h6">GPA: 5.00</Typography>
+            <Typography variant="h6">2015 - 2017</Typography>
           </Box>
         </StyledSection>
 
@@ -290,7 +354,7 @@ export default function Home() {
 
         <StyledSection id={"interests"}>
           <Box>
-            <Typography variant="h1">INTERESTS</Typography>
+            <Typography sx={{fontWeight: "bold"}} variant="h1">INTERESTS</Typography>
           </Box>
         </StyledSection>
       </StyledSectionContainer>
