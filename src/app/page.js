@@ -108,6 +108,7 @@ const StyledSectionContainer = (props) => {
     flexDirection: 'column',
     flexGrow: 1,
     minHeight: '100vh',
+    height: {md: "100vh"},
     overflowY: 'auto',
     scrollBehavior: 'smooth',
     marginLeft: {md: "240px"}
@@ -204,6 +205,16 @@ export default function Home() {
         <StyledListItem><StyledLink fullUrl={fullUrl} href="#skills">SKILLS</StyledLink></StyledListItem>
         <StyledListItem><StyledLink fullUrl={fullUrl} href="#education">EDUCATION</StyledLink></StyledListItem>
         <StyledListItem><StyledLink fullUrl={fullUrl} href="#interests">INTERESTS</StyledLink></StyledListItem>
+        <StyledListItem>
+          <Button variant="contained" 
+            sx={{color: 'white', backgroundColor: 'green'}} 
+            href={"https://drive.google.com/file/d/115fscZJO9S9T0MohOhECw-_--gfTvI3j/view?usp=drive_link"}
+          >
+            <Typography fontFamily={'var(--font-roboto)'} fontWeight={'bold'}>
+              RESUME
+            </Typography>
+          </Button>
+        </StyledListItem>
       </StyledSidebar>
       <StyledSectionContainer>
         <StyledSection id={"welcome"}>
@@ -250,7 +261,6 @@ export default function Home() {
             </Typography>
           </Box>
         </StyledSection>
-
         <Divider/>
 
         <StyledSection id={"projects"}>
@@ -258,56 +268,49 @@ export default function Home() {
           <Box sx={{marginTop: 2, marginBottom: 2}}/>
 
           <Box sx={{display: "flex", flexDirection: "row"}}>
-          <Grid container spacing={2} flexGrow={1}>
-            <Grid size={4} sx={{display: "flex", flexDirection: 'column',}}>
-              <Card sx={{display: "flex", flexDirection: 'column', flex: 1, minHeight: 360}}>
+          <Grid container spacing={2} sx={{display: 'flex', flexDirection: {xs: "column", md: "row"}, flexGrow: 1}}>
+            <Grid size={4} sx={{display: "flex", flexDirection: 'row', flexGrow: 1,}}>
+              <Card sx={{display: "flex", flexDirection: 'column', flex: 1, minHeight: 360, padding:1, backgroundColor: '#010101'}}>
                 <CardMedia component={"div"} sx={{position: 'relative', width: '100%', display: "inherit", flexGrow: 1}}>
-                  <Image src={"TLDD_DEMO.PNG"} fill style={{objectFit: "cover"}} alt="TLDD_DEMO.PNG" quality={100}/>
+                  <Image src={"no-image.jpg"} fill style={{objectFit: "cover"}} alt="no-image.jpg" quality={100}/>
                 </CardMedia>
-                <CardContent sx={{flexGrow: 0}}>
-                  hi
+                <CardContent sx={{backgroundColor: 'grey', color: "black"}}>
+                  E-commerce Website
                 </CardContent>
-                <CardActions>
-                  <Button>click me</Button>
+                <CardActions sx={{backgroundColor: 'grey'}}>
+                  <Button fullWidth sx={{color: "black"}}>Details</Button>
                 </CardActions>
               </Card>
             </Grid>
-            <Grid size={4}>
-              <Card sx={{}}>
-                <CardMedia sx={{}}
-                  component={()=>(<Image
-                    src={"1723724803350.jpg"}
-                    height={30}
-                    width={30}
-                    quality={75}
-                    alt="hi"
-                  />)}
-                />
-                  
-                
-                <CardContent>
-                  
+            <Grid size={4} sx={{display: "flex", flexDirection: 'row', flexGrow: 1,}}>
+              <Card sx={{display: "flex", flexDirection: 'column', flex: 1, minHeight: 360, padding:1, backgroundColor: '#010101' }}>
+                <CardMedia component={"div"} sx={{position: 'relative', width: '100%', display: "inherit", flexGrow: 1}}>
+                  <Image src={"no-image.jpg"} fill style={{objectFit: "cover"}} alt="no-image.jpg" quality={100}/>
+                </CardMedia>
+                <CardContent sx={{backgroundColor: 'grey', color: "black"}}>
+                  LeafLens
                 </CardContent>
-                <CardActions>
-                  <Button>click me</Button>
+                <CardActions sx={{backgroundColor: 'grey'}}>
+                  <Button fullWidth sx={{color: "black"}}>Details</Button>
                 </CardActions>
               </Card>
             </Grid>
-            <Grid size={4}>
-              <Card>
-                <CardMedia/>
-                <CardContent sx={{height: 100}}>
+            <Grid size={4} sx={{display: "flex", flexDirection: 'row', flexGrow: 1,}}>
+              <Card sx={{display: "flex", flexDirection: 'column', flex: 1, minHeight: 360, padding:1, backgroundColor: '#010101' }}>
+                <CardMedia component={"div"} sx={{position: 'relative', width: '100%', display: "inherit", flexGrow: 1}}>
+                  <Image src={"no-image.jpg"} fill style={{objectFit: "cover"}} alt="no-image.jpg" quality={100}/>
+                </CardMedia>
+                <CardContent sx={{backgroundColor: 'grey', color: "black"}}>
                   hi
                 </CardContent>
-                <CardActions>
-                  <Button>click me</Button>
+                <CardActions sx={{backgroundColor: 'grey'}}>
+                  <Button fullWidth sx={{color: "black"}}>Details</Button>
                 </CardActions>
               </Card>
             </Grid>
           </Grid>
           </Box>
         </StyledSection>
-
         <Divider/>
 
         <StyledSection id={"skills"}>
@@ -339,7 +342,6 @@ export default function Home() {
             <Grid><SiAmazonwebservices size={40}/></Grid>
           </Grid>
         </StyledSection>
-
         <Divider/>
 
         <StyledSection id={"education"}>
@@ -362,12 +364,14 @@ export default function Home() {
             <Typography variant="h6">2015 - 2017</Typography>
           </Box>
         </StyledSection>
-
         <Divider/>
 
         <StyledSection id={"interests"}>
           <Box>
             <Typography sx={{fontWeight: "bold"}} variant="h1">INTERESTS</Typography>
+          </Box>
+          <Box>
+            <Typography variant="h5">Beside programming, I love long walks, small tours to rural areas and learn new things everyday.</Typography>
           </Box>
         </StyledSection>
       </StyledSectionContainer>
