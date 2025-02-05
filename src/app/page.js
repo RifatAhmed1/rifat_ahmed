@@ -239,7 +239,7 @@ export default function Home() {
           </Stack>
           </Box> 
         </StyledSection>
-        <Divider/>
+        <Divider sx={{backgroundColor: 'black'}}/>
         
         <StyledSection id={"about"}>
           <Box>
@@ -261,57 +261,54 @@ export default function Home() {
             </Typography>
           </Box>
         </StyledSection>
-        <Divider/>
+        <Divider sx={{backgroundColor: 'black'}}/>
 
         <StyledSection id={"projects"}>
           <Box><Typography sx={{fontWeight: "bold"}} variant="h1">PROJECTS</Typography></Box>
           <Box sx={{marginTop: 2, marginBottom: 2}}/>
-
           <Box sx={{display: "flex", flexDirection: "row"}}>
-          <Grid container spacing={2} sx={{display: 'flex', flexDirection: {xs: "column", md: "row"}, flexGrow: 1}}>
-            <Grid size={4} sx={{display: "flex", flexDirection: 'row', flexGrow: 1,}}>
-              <Card sx={{display: "flex", flexDirection: 'column', flex: 1, minHeight: 360, padding:1, backgroundColor: '#010101'}}>
-                <CardMedia component={"div"} sx={{position: 'relative', width: '100%', display: "inherit", flexGrow: 1}}>
-                  <Image src={"no-image.jpg"} fill style={{objectFit: "cover"}} alt="no-image.jpg" quality={100}/>
-                </CardMedia>
-                <CardContent sx={{backgroundColor: 'grey', color: "black"}}>
-                  E-commerce Website
-                </CardContent>
-                <CardActions sx={{backgroundColor: 'grey'}}>
-                  <Button fullWidth sx={{color: "black"}}>Details</Button>
-                </CardActions>
-              </Card>
+            <Grid container spacing={2} sx={{display: 'flex', flexDirection: {xs: "column", md: "row"}, flexGrow: 1}}>
+              <Grid size={{xs:12, md: 4}} sx={{display: "flex", flexDirection: {xs: 'row', md:'column'}, flexGrow: 1,}}>
+                <Card sx={{display: "flex", flexDirection: 'column', flexGrow: 1, minHeight: 400, padding:1, backgroundColor: '#010101',}}>
+                  <CardMedia component={"div"} sx={{position: 'relative', width: '100%', display: "inherit", flexGrow: 1}}>
+                    <Image src={"no-image.jpg"} fill style={{objectFit: "cover"}} alt="no-image.jpg" quality={100}/>
+                  </CardMedia>
+                  <CardContent sx={{backgroundColor: 'grey', color: "black"}}>[To be added]</CardContent>
+                  <CardActions sx={{backgroundColor: 'grey'}}>
+                    <Button fullWidth sx={{color: "black", "&:hover": {color: "white", backgroundColor: '#010101'}, fontFamily: 'var(--font-roboto)'}}>Details</Button>
+                  </CardActions>
+                </Card>
+              </Grid>
+              <Grid size={{xs:12, md: 4}} sx={{display: "flex", flexDirection: 'row', flexGrow: 1,}}>
+                <Card sx={{display: "flex", flexDirection: 'column', flex: 1, minHeight: 360, padding:1, backgroundColor: '#010101' }}>
+                  <CardMedia component={"div"} sx={{position: 'relative', width: '100%', display: "inherit", flexGrow: 1}}>
+                    <Image src={"no-image.jpg"} fill style={{objectFit: "cover"}} alt="no-image.jpg" quality={100}/>
+                  </CardMedia>
+                  <CardContent sx={{backgroundColor: 'grey', color: "black"}}>
+                    [To be added]
+                  </CardContent>
+                  <CardActions sx={{backgroundColor: 'grey'}}>
+                    <Button fullWidth sx={{color: "black", "&:hover": {color: "white", backgroundColor: '#010101'}, fontFamily: 'var(--font-roboto)'}}>Details</Button>
+                  </CardActions>
+                </Card>
+              </Grid>
+              <Grid size={{xs:12, md: 4}} sx={{display: "flex", flexDirection: 'row', flexGrow: 1,}}>
+                <Card sx={{display: "flex", flexDirection: 'column', flex: 1, minHeight: 360, padding:1, backgroundColor: '#010101' }}>
+                  <CardMedia component={"div"} sx={{position: 'relative', width: '100%', display: "inherit", flexGrow: 1}}>
+                    <Image src={"no-image.jpg"} fill style={{objectFit: "cover"}} alt="no-image.jpg" quality={100}/>
+                  </CardMedia>
+                  <CardContent sx={{backgroundColor: 'grey', color: "black"}}>
+                  [To be added]
+                  </CardContent>
+                  <CardActions sx={{backgroundColor: 'grey'}}>
+                    <Button fullWidth sx={{color: "black", "&:hover": {color: "white", backgroundColor: '#010101'}, fontFamily: 'var(--font-roboto)'}}>Details</Button>
+                  </CardActions>
+                </Card>
+              </Grid>
             </Grid>
-            <Grid size={4} sx={{display: "flex", flexDirection: 'row', flexGrow: 1,}}>
-              <Card sx={{display: "flex", flexDirection: 'column', flex: 1, minHeight: 360, padding:1, backgroundColor: '#010101' }}>
-                <CardMedia component={"div"} sx={{position: 'relative', width: '100%', display: "inherit", flexGrow: 1}}>
-                  <Image src={"no-image.jpg"} fill style={{objectFit: "cover"}} alt="no-image.jpg" quality={100}/>
-                </CardMedia>
-                <CardContent sx={{backgroundColor: 'grey', color: "black"}}>
-                  LeafLens
-                </CardContent>
-                <CardActions sx={{backgroundColor: 'grey'}}>
-                  <Button fullWidth sx={{color: "black"}}>Details</Button>
-                </CardActions>
-              </Card>
-            </Grid>
-            <Grid size={4} sx={{display: "flex", flexDirection: 'row', flexGrow: 1,}}>
-              <Card sx={{display: "flex", flexDirection: 'column', flex: 1, minHeight: 360, padding:1, backgroundColor: '#010101' }}>
-                <CardMedia component={"div"} sx={{position: 'relative', width: '100%', display: "inherit", flexGrow: 1}}>
-                  <Image src={"no-image.jpg"} fill style={{objectFit: "cover"}} alt="no-image.jpg" quality={100}/>
-                </CardMedia>
-                <CardContent sx={{backgroundColor: 'grey', color: "black"}}>
-                  hi
-                </CardContent>
-                <CardActions sx={{backgroundColor: 'grey'}}>
-                  <Button fullWidth sx={{color: "black"}}>Details</Button>
-                </CardActions>
-              </Card>
-            </Grid>
-          </Grid>
           </Box>
         </StyledSection>
-        <Divider/>
+        <Divider sx={{backgroundColor: 'black'}}/>
 
         <StyledSection id={"skills"}>
           <Box><Typography sx={{fontWeight: "bold"}} variant="h1">SKILLS</Typography></Box>
@@ -342,7 +339,7 @@ export default function Home() {
             <Grid><SiAmazonwebservices size={40}/></Grid>
           </Grid>
         </StyledSection>
-        <Divider/>
+        <Divider sx={{backgroundColor: 'black'}}/>
 
         <StyledSection id={"education"}>
           <Box>
@@ -364,7 +361,7 @@ export default function Home() {
             <Typography variant="h6">2015 - 2017</Typography>
           </Box>
         </StyledSection>
-        <Divider/>
+        <Divider sx={{backgroundColor: 'black'}}/>
 
         <StyledSection id={"interests"}>
           <Box>
