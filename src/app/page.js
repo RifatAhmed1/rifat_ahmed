@@ -10,14 +10,14 @@ import {SiFacebook, SiLinkedin, SiGithub, SiHtml5, SiCss3, SiJavascript, SiMui, 
 const baseUrl = process.env.NODE_ENV === "production" ? "" : "/"
 
 const StyledRoot = (props) => {
-  const {children} = props;
+  const {children, ...rest} = props;
   const rootStyle = {
     display: 'flex',
     flexDirection: 'row',
-    Height: '100vh',
+    minHeight: '100vh',
   }
   return(
-    <Box sx={{...rootStyle}} {...props}>
+    <Box sx={{...rootStyle}} {...rest}>
       {children}
     </Box>
   )
@@ -31,9 +31,10 @@ const StyledSidebar = (props) => {
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: '#010101',
-    Height: '100vh',
+    height: '100vh',
     color: 'white',
     minWidth: {md: 240},
+    position: 'fixed',
   }
   return(
     <List sx={{...listStyle}} {...rest}>
@@ -101,35 +102,35 @@ const StyledSocialLink = (props) => {
 }
 
 const StyledSectionContainer = (props) => {
-  const { children } = props;
+  const { children, ...rest } = props;
   const sectionBoxStyle = {
     display: 'flex',
     flexDirection: 'column',
-    flex: 1,
-    height: '100vh',
-    overflowY: 'scroll',
-    scrollBehavior: 'smooth'
+    flexGrow: 1,
+    minHeight: '100vh',
+    overflowY: 'auto',
+    scrollBehavior: 'smooth',
+    marginLeft: {md: "240px"}
   };
   return(
-    <Box sx={sectionBoxStyle} {...props}>
+    <Box sx={sectionBoxStyle} {...rest}>
       {children}
     </Box>
   )
 }
 
 const StyledSection = (props) => {
-  const {children} = props;
+  const {children, ...rest} = props;
   const sectionStyle = {
     backgroundColor: 'grey',
     minHeight: '100vh',
     display: 'flex',
-    //justifyContent: 'center',
-    //alignItems: 'flex-start',
+    flexGrow: 1,
     flexDirection: 'column',
     p: 8
   }
   return(
-    <Box component={"section"} sx={sectionStyle} {...props}>
+    <Box component={"section"} sx={sectionStyle} {...rest}>
       {children}
     </Box>
   )
@@ -161,7 +162,7 @@ const StyledLinkButton = (props) => {
 export default function Home() {
   const [fullUrl, setFullUrl] = useState('');
   const sections = ["welcome", "about", "projects", "education", "skills", "interests"]
-
+  
   useEffect(() => {
     const observerOptions = {
       root: null,
@@ -220,7 +221,7 @@ export default function Home() {
             <StyledSocialLink href={'https://www.github.com/rifatahmed1'}><SiGithub size={40}/></StyledSocialLink>
           </Stack>
           </Box>
-          <Box sx={{marginTop: 2, marginBottom: 2, }}>
+          <Box sx={{marginTop: 2, marginBottom: 2,}}>
           <Stack direction={"row"} spacing={1}>
             <StyledLinkButton href={"#about"}>Read More</StyledLinkButton>
             <StyledLinkButton href={"#contact"}>Contact Me</StyledLinkButton>
@@ -258,10 +259,12 @@ export default function Home() {
 
           <Box sx={{display: "flex", flexDirection: "row"}}>
           <Grid container spacing={2} flexGrow={1}>
-            <Grid size={4}>
-              <Card sx={{minHeight: 360}}>
-                <CardMedia/>
-                <CardContent>
+            <Grid size={4} sx={{display: "flex", flexDirection: 'column',}}>
+              <Card sx={{display: "flex", flexDirection: 'column', flex: 1, minHeight: 360}}>
+                <CardMedia component={"div"} sx={{position: 'relative', width: '100%', display: "inherit", flexGrow: 1}}>
+                  <Image src={"TLDD_DEMO.PNG"} fill style={{objectFit: "cover"}} alt="TLDD_DEMO.PNG" quality={100}/>
+                </CardMedia>
+                <CardContent sx={{flexGrow: 0}}>
                   hi
                 </CardContent>
                 <CardActions>
@@ -270,10 +273,20 @@ export default function Home() {
               </Card>
             </Grid>
             <Grid size={4}>
-              <Card sx={{minHeight: 360}}>
-                <CardMedia/>
+              <Card sx={{}}>
+                <CardMedia sx={{}}
+                  component={()=>(<Image
+                    src={"1723724803350.jpg"}
+                    height={30}
+                    width={30}
+                    quality={75}
+                    alt="hi"
+                  />)}
+                />
+                  
+                
                 <CardContent>
-                  hi
+                  
                 </CardContent>
                 <CardActions>
                   <Button>click me</Button>
