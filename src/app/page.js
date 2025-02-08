@@ -265,27 +265,19 @@ export default function Home() {
 
         <StyledSection id={"projects"}>
           <Box><Typography sx={{fontWeight: "bold"}} variant="h1">PROJECTS</Typography></Box>
+
           <Box sx={{marginTop: 2, marginBottom: 2}}/>
+
           <Box sx={{display: "flex", flexDirection: "row"}}>
             <Grid container spacing={2} sx={{display: 'flex', flexDirection: {xs: "column", md: "row"}, flexGrow: 1}}>
               <Grid size={{xs:12, md: 4}} sx={{display: "flex", flexDirection: {xs: 'row', md:'column'}, flexGrow: 1,}}>
                 <Card sx={{display: "flex", flexDirection: 'column', flexGrow: 1, minHeight: 400, padding:1, backgroundColor: '#010101',}}>
                   <CardMedia component={"div"} sx={{position: 'relative', width: '100%', display: "inherit", flexGrow: 1}}>
-                    <Image src={"no-image.jpg"} fill style={{objectFit: "cover"}} alt="no-image.jpg" quality={100}/>
-                  </CardMedia>
-                  <CardContent sx={{backgroundColor: 'grey', color: "black"}}>[To be added]</CardContent>
-                  <CardActions sx={{backgroundColor: 'grey'}}>
-                    <Button fullWidth sx={{color: "black", "&:hover": {color: "white", backgroundColor: '#010101'}, fontFamily: 'var(--font-roboto)'}}>Details</Button>
-                  </CardActions>
-                </Card>
-              </Grid>
-              <Grid size={{xs:12, md: 4}} sx={{display: "flex", flexDirection: 'row', flexGrow: 1,}}>
-                <Card sx={{display: "flex", flexDirection: 'column', flex: 1, minHeight: 360, padding:1, backgroundColor: '#010101' }}>
-                  <CardMedia component={"div"} sx={{position: 'relative', width: '100%', display: "inherit", flexGrow: 1}}>
-                    <Image src={"no-image.jpg"} fill style={{objectFit: "cover"}} alt="no-image.jpg" quality={100}/>
+                    <Image src={"leaflens.png"} fill style={{objectFit: "cover"}} alt="leaflens" quality={100}/>
                   </CardMedia>
                   <CardContent sx={{backgroundColor: 'grey', color: "black"}}>
-                    [To be added]
+                    <Typography variant="h4" fontWeight={"bold"}>
+                    LeafLens</Typography>
                   </CardContent>
                   <CardActions sx={{backgroundColor: 'grey'}}>
                     <Button fullWidth sx={{color: "black", "&:hover": {color: "white", backgroundColor: '#010101'}, fontFamily: 'var(--font-roboto)'}}>Details</Button>
@@ -298,7 +290,22 @@ export default function Home() {
                     <Image src={"no-image.jpg"} fill style={{objectFit: "cover"}} alt="no-image.jpg" quality={100}/>
                   </CardMedia>
                   <CardContent sx={{backgroundColor: 'grey', color: "black"}}>
-                  [To be added]
+                  <Typography variant="h4" fontWeight={"bold"}>
+                    [To be added]</Typography>
+                  </CardContent>
+                  <CardActions sx={{backgroundColor: 'grey'}}>
+                    <Button fullWidth sx={{color: "black", "&:hover": {color: "white", backgroundColor: '#010101'}, fontFamily: 'var(--font-roboto)'}}>Details</Button>
+                  </CardActions>
+                </Card>
+              </Grid>
+              <Grid size={{xs:12, md: 4}} sx={{display: "flex", flexDirection: 'row', flexGrow: 1,}}>
+                <Card sx={{display: "flex", flexDirection: 'column', flex: 1, minHeight: 360, padding:1, backgroundColor: '#010101' }}>
+                  <CardMedia component={"div"} sx={{position: 'relative', width: '100%', display: "inherit", flexGrow: 1}}>
+                    <Image src={"no-image.jpg"} fill style={{objectFit: "cover"}} alt="no-image.jpg" quality={100}/>
+                  </CardMedia>
+                  <CardContent sx={{backgroundColor: 'grey', color: "black"}}>
+                  <Typography variant="h4" fontWeight={"bold"}>
+                  [To be added]</Typography>
                   </CardContent>
                   <CardActions sx={{backgroundColor: 'grey'}}>
                     <Button fullWidth sx={{color: "black", "&:hover": {color: "white", backgroundColor: '#010101'}, fontFamily: 'var(--font-roboto)'}}>Details</Button>
